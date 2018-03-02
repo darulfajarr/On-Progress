@@ -27,6 +27,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>['auth', 'role:admin']], function
 	Route::resource('Home', 'HommeController');
 	Route::resource('Store', 'StoreController');
 	Route::resource('Lainnya', 'LainnyaController');
+		Route::resource('discont', 'DiscontController');
 		Route::resource('artikel', 'ArtikelContoller');
 });
 //route halaman user
@@ -36,4 +37,5 @@ Route::resource('store', 'GuestsController@store');
 Route::resource('admin', 'GuestsController@admin');
 Route::resource('news', 'GuestsController@news');
 Route::resource('artikells', 'GuestsController@artikells');
+Route::get('/artikels/{id}', 'GuestsController@show');
 Route::get('/model/{id}', array('as' => 'showperkategori', 'uses' =>'GuestsController@showperkategori'));

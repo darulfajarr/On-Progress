@@ -8,11 +8,7 @@
 
 @extends('layouts.user')
 @section('content')
-@foreach ($Lainnya as $data) 
-<body style="background:linear-gradient(rgba(47,23,15,.65),rgba(47,23,15,.65)),url(../img/img1/{{$data->cover}});
-              background-repeat: no-repeat;
-              background-size: cover; 
-              background-attachment: fixed;">
+
 @foreach ($About as $data) 
 
 
@@ -36,6 +32,6 @@
       </div>
 
     </section>
-@endforeach
+
 @endforeach
 @endsection

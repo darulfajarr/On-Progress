@@ -9,6 +9,7 @@ use Yajra\Datatables\Html\Builder;
 use Yajra\Datatables\Datatables;
 use App\Product;
 use App\Home;
+use App\discont;
 use App\About;
 use App\kategori;
 use App\artikel;
@@ -35,14 +36,14 @@ class GuestsController extends Controller
     public function index(Request $request, Builder $htmlBuilder)
     {
        $Home = Home::all();
-       $Lainnya = Lainnya::all();
-       return view('guest.home')->with(compact('Home','Lainnya'));
+        $discont = discont::all();
+
+       return view('guest.home')->with(compact('Home','discont'));
    }
      public function artikells(Request $request, Builder $htmlBuilder)
     {
        $artikel = artikel::orderBy('created_at','desc')->paginate(5);
-       $Lainnya = Lainnya::all();
-       return view('guest.artikel')->with(compact('artikel','Lainnya'));
+       return view('guest.artikel')->with(compact('artikel'));
    }
  
   
@@ -51,17 +52,15 @@ class GuestsController extends Controller
    {
 
        $Product = Product::orderBy('nama_product','asc')->paginate(2);
-       $Lainnya = Lainnya::all();
        $kategori = kategori::all();
-       return view('guest.products')->with(compact('Product','Lainnya','kategori')); 
+       return view('guest.products')->with(compact('Product','kategori')); 
    }
 
    public function news(Request $request, Builder $htmlBuilder)
    {
         $kategori = kategori::all();
        $Product = Product::orderBy('created_at','desc')->take(5)->get();
-       $Lainnya = Lainnya::all();
-       return view('guest.news')->with(compact('Product','Lainnya','kategori')); 
+       return view('guest.news')->with(compact('Product','kategori')); 
    }
 
 
@@ -76,17 +75,22 @@ public function store(Request $request, Builder $htmlBuilder)
 public function about(Request $request, Builder $htmlBuilder)
    {
        $About = About::all();
-       $Lainnya = Lainnya::all();
-       return view('guest.about')->with(compact('About','Lainnya')); 
+       return view('guest.about')->with(compact('About')); 
    }
 
 public function showperkategori($id)
    {
        $filtercategori = Product::where('kategori_id','=',$id)->paginate(2);
-       $Lainnya = Lainnya::all();
        $kategori = kategori::all();
-       return view('guest.kategori')->with(compact('filtercategori','Lainnya','kategori')); 
+       return view('guest.kategori')->with(compact('filtercategori','kategori')); 
+   }
+public function show($id)
+   {
+      $artikel=artikel::findOrfail($id);
+        return view('guest.show')->with(compact('artikel')); 
    }
 
-
 }
+
+
+

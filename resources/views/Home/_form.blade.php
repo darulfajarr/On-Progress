@@ -68,32 +68,8 @@
 
 <br>
 
-<div class="form-group{{ $errors->has('textkecilboldft') ? ' has-error' : '' }}">
-	{!! Form::label('textkecilboldft', 'Text Kecil Bold Bawah', ['class'=>'col-md-2 control-label']) !!}
-	<div class="col-md-8">
-		{!! Form::text('textkecilboldft', null, ['class'=>'form-control']) !!}
-		{!! $errors->first('textkecilboldft', '<p class="help-block">:message</p>') !!}
-	</div>
-</div>
-<br>
-<div class="form-group{{ $errors->has('textbesarft') ? ' has-error' : '' }}">
-	{!! Form::label('textbesarft', 'Text Besar Bawah', ['class'=>'col-md-2 control-label']) !!}
-	<div class="col-md-8">
-		{!! Form::text('textbesarft', null, ['class'=>'form-control']) !!}
-		{!! $errors->first('textbesarft', '<p class="help-block">:message</p>') !!}
-	</div>
-</div>
-<br>
-<div class="form-group{{ $errors->has('textkecilft') ? ' has-error' : '' }}">
-	{!! Form::label('textkecilft', 'Text Kecil Bawah', ['class'=>'col-md-2 control-label']) !!}
-	<div class="col-md-8">
-		{!! Form::textarea('textkecilft', null, ['class'=>'form-control']) !!}
-		{!! $errors->first('textkecilft', '<p class="help-block">:message</p>') !!}
-	</div>
-</div>
 
 
-<br>
 
 
 <div class="form-group">

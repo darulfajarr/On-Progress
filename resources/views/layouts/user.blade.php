@@ -24,8 +24,17 @@
 
   </head>
 
- 
+        @php
+        $bg = App\Lainnya::where('id', 1)->get();
+        @endphp
+        @foreach($bg as $Lainnya)
+<body style="background:linear-gradient(rgba(47,23,15,.65),rgba(47,23,15,.65)),url(../img/img1/{{$Lainnya->cover}});
+              background-repeat: no-repeat;
+              background-size: cover; 
+              background-attachment: fixed;">
 
+       
+        @endforeach
     <!-- Navigation -->
       <nav class="navbar navbar-expand-lg navbar-dark py-lg-2" id="mainNav">
         <div class="container">

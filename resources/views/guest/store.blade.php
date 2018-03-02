@@ -7,10 +7,7 @@
 @foreach ($Lainnya as $data1) 
 @extends('layouts.user')
 @section('content')
- <body style="background:linear-gradient(rgba(47,23,15,.65),rgba(47,23,15,.65)),url(../img/img1/{{$data1->cover}});
-              background-repeat: no-repeat;
-              background-size: cover; 
-              background-attachment: fixed;">
+
 
 @foreach ($Store as $data) 
 

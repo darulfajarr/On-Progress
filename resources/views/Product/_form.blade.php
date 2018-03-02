@@ -16,7 +16,7 @@
 		{!! $errors->first('cover', '<p class="help-block">:message</p>') !!}
 	</div>
 </div>
-<br>
+
 <br>
 <div class="form-group{{ $errors->has('kategori_id') ? ' has-error' : '' }}">
 	{!! Form::label('kategori_id', 'Kategori Product', ['class'=>'col-md-2 control-label']) !!}
@@ -26,7 +26,15 @@
 	</div>
 </div>
 <br>
-<br>
+
+<div class="form-group{{ $errors->has('Kode') ? ' has-error' : '' }}">
+	{!! Form::label('Kode', 'Kode', ['class'=>'col-md-2 control-label']) !!}
+	<div class="col-md-8">
+		{!! Form::text('Kode', null, ['class'=>'form-control']) !!}
+		{!! $errors->first('Kode', '<p class="help-block">:message</p>') !!}
+	</div>
+</div>
+
 <br>
 <div class="form-group{{ $errors->has('nama_product') ? ' has-error' : '' }}">
 	{!! Form::label('nama_product', 'Nama Product', ['class'=>'col-md-2 control-label']) !!}

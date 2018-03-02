@@ -5,7 +5,7 @@
     <link rel="shortcut icon" href="{{asset('icon.png')}}">
 @extends('layouts.user')
 @section('content')
-@foreach ($Lainnya as $data1) 
+
 
       <br>
 
@@ -16,22 +16,21 @@
        
           <ul class="navbar-nav mx-auto">
            <li class="nav-item px-lg-1">
-              <a class="nav-link text-uppercase text-expanded" href="/products">Semua Produk</a>
+              <a class="nav-link text-uppercase text-expanded" href="/products"><h4>Semua Produk</h4></a>
             </li>
-            @foreach ($kategori as $data2)
+           @foreach ($kategori as $data2)
             <li class="nav-item px-lg-1">
-              <a class="nav-link text-uppercase text-expanded" href="{{route('showperkategori', $data2->id)}}">{!!$data2->nama_kategori!!}</a>
+              <a class="nav-link text-uppercase text-expanded" href="{{route('showperkategori', $data2->id)}}"><h4>{!!$data2->nama_kategori!!}</h4></a>
             </li>
            @endforeach
+          <li class="nav-item px-lg-1">
+              <a class="nav-link text-uppercase text-expanded" href="/news"><h4>Produk Terbaru</h4></a>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
 
-<body style="background:linear-gradient(rgba(47,23,15,.65),rgba(47,23,15,.65)),url(../img/img1/{{$data1->cover}});
-              background-repeat: no-repeat;
-              background-size: cover; 
-              background-attachment: fixed;">
 
 
 
@@ -53,7 +52,10 @@
 
                <p class="mb-0"><center><h2><b><u>Detail</u></b></h2></center>  <br>
 
-                <table>
+               <table>
+                  <tr>
+                    <td>Kode</td><td>&nbsp:&nbsp</td><td>{!!$data->Kode!!}</td>
+                  </tr>
                   <tr>
                     <td>Bahan</td><td>&nbsp:&nbsp</td><td>{!!$data->bahan!!}</td>
                   </tr>
@@ -79,5 +81,5 @@
 </ul><br>
     </section>
 
-      @endforeach
+     
 @endsection

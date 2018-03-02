@@ -7,11 +7,11 @@
 <link rel="shortcut icon" href="{{asset('icon.png')}}">
 @extends('layouts.user')
 @section('content')
-@foreach ($Lainnya as $data) 
 
-<br>
 
- <nav class="navbar navbar-expand-lg navbar-dark py-lg-2" id="mainNav">
+      <br>
+
+          <nav class="navbar navbar-expand-lg navbar-dark py-lg-2" id="mainNav">
       <div class="container">
        
        
@@ -32,10 +32,7 @@
         </div>
       </div>
     </nav>
-<body style="background:linear-gradient(rgba(47,23,15,.65),rgba(47,23,15,.65)),url(../img/img1/{{$data->cover}});
-              background-repeat: no-repeat;
-              background-size: cover; 
-              background-attachment: fixed;">
+
          @foreach ($Product as $data)
  
     <section class="page-section">
@@ -53,13 +50,21 @@
             <div class="bg-faded p-5 rounded">
 
              <p class="mb-0"><center><h2><b><u>Detail</u></b></h2></center>  <br>
-              Bahan &nbsp&nbsp : &nbsp {!!$data->bahan!!}
-              <br>
-              Warna &nbsp&nbsp : &nbsp {!!$data->warna!!}
-              <br>
-              Ukuran &nbsp: &nbsp {!!$data->ukuran!!}
 
-
+                <table>
+                  <tr>
+                    <td>Kode</td><td>&nbsp:&nbsp</td><td>{!!$data->Kode!!}</td>
+                  </tr>
+                  <tr>
+                    <td>Bahan</td><td>&nbsp:&nbsp</td><td>{!!$data->bahan!!}</td>
+                  </tr>
+                  <tr>
+                    <td>Warna</td><td>&nbsp:&nbsp</td><td>{!!$data->warna!!}</td>
+                  </tr>
+                  <tr>
+                    <td>Ukuran</td><td>&nbsp:&nbsp</td><td>{!!$data->ukuran!!}</td>
+                  </tr>
+                </table>
               </p>
             </div>
           </div>
@@ -67,7 +72,7 @@
       </div>
 
       @endforeach
-@endforeach
+
       <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();

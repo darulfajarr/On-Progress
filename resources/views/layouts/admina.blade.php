@@ -112,6 +112,7 @@
             
           </ul>
         </li>
+             <li><a href="{{ route('discont.index') }}"><i class="fa fa-laptop"></i>Discont Dan Promo</a></li>
             <li><a href="/chat"><i class="fa fa-laptop"></i>Pesan Langsung</a></li>
         <li><a href="{{ route('artikel.index') }}"><i class="fa fa-laptop"></i>Artikel</a></li>
         <li>

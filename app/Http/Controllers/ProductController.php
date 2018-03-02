@@ -46,6 +46,7 @@ public function index(Request $request, Builder $htmlBuilder)
         $this->validate($request, [
             'cover'=> 'image|max:2048',
             'nama_product'=> 'required|unique:products,nama_product',
+            'Kode'=> 'required|unique:products,Kode'
             ]);
         $Product = Product::create($request->except('cover'));
 // isi field cover jika ada cover yang diupload
@@ -106,8 +107,10 @@ public function index(Request $request, Builder $htmlBuilder)
      */
      public function update(Request $request, $id)
     {
-        $this->validate($request, ['nama_product' => 'required|unique:products,nama_product,'. $id,
-            'cover'=> 'image|max:2048'
+        $this->validate($request, [
+            'cover'=> 'image|max:2048',
+            'nama_product'=> 'required|unique:products,nama_product',
+            'Kode'=> 'required|unique:products,Kode'
             ]);
         $poto = Product::find($id);
         $poto->update($request->all());

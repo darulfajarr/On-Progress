@@ -2,7 +2,7 @@
 @section('content')
     <ol class="breadcrumb">
     <h4>
-        <li><i class="fa fa-dashboard"></i> Data Produk</li>
+        <li><i class="fa fa-dashboard"></i> Data Discont</li>
     </h4>
       </ol>
 <br><br><br><br>
@@ -19,38 +19,32 @@
   <div class="box-header" style="">
     <h3 class="box-title" ></h3>
   </div><br>
-  &nbsp&nbsp<a class="btn btn-primary" href="{{ route('Product.create') }}">Tambah</a>
+  &nbsp&nbsp<a class="btn btn-primary" href="{{ route('discont.create') }}">Tambah</a>
     <!-- /.box-header -->
     <div class="box-body">
       <table id="data" class="table table-striped">
         <thead>
           <tr>
             <th>No</th>
-            <th>Gambar</th>
-            <th>Kode</th>
-            <th>Nama Produk</th>
-            <th>Bahan</th>
-            <th>Warna</th>
-            <th>Ukuran</th>
+            <th>Atas</th>
+            <th>Tengah</th>
+            <th>Bawah</th>
             <th>Aksi</th>
           </tr>
         </thead>
         <tbody>
           @php $no=1 @endphp
-          @foreach($Product as $data)
+          @foreach($discont as $data)
           <tr>
             <td>{{$no++}}</td>
-            <td><img width="200" height="100" src="{{asset('/img/img7/'.$data->cover.'')}}" /></td>
-            <td>{{$data->Kode}}</td>
-            <td>{{$data->nama_product}}</td>
-            <td>{{$data->bahan}}</td>
-            <td>{{$data->warna}}</td>
-            <td>{{$data->ukuran}}</td>
+            <td>{{$data->atas}}</td>
+            <td>{{$data->tengah}}</td>
+            <td>{{$data->bawah}}</td>
             <td>
-              <form action="{{route('Product.destroy',$data->id)}}" method="post">
+              <form action="{{route('discont.destroy',$data->id)}}" method="post">
                 <input type="hidden" name="_method" value="Delete">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <a data-toggle="tooltip" data-placement="top" title="Edit Data" class="btn btn-success" href="/admin/Product/{{$data->id}}/edit"><i class="fa fa-edit"></i></a>
+                <a data-toggle="tooltip" data-placement="top" title="Edit Data" class="btn btn-success" href="/admin/discont/{{$data->id}}/edit"><i class="fa fa-edit"></i></a>
                 <button data-toggle="tooltip" data-placement="top" title="Hapus Data" type="submit" class="btn btn-danger" onclick="return confirm('Anda Yakin Akan Menghapus ?')"><i class="fa fa-trash"></i></button>
               {{csrf_field()}}
               </form>

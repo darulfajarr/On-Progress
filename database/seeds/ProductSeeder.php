@@ -9,6 +9,8 @@ use App\Store;
 use App\Jamker;
 use App\kategori;
 use App\artikel;
+use App\discont;
+
 class ProductSeeder extends Seeder
 {
     /**
@@ -152,6 +154,7 @@ $kategori = kategori::create([
 
 
             $Product1 = Product::create([
+            'Kode' => 'B-A01',
             'kategori_id' => '3',
             'nama_product' =>'Montain T-shirt ',
             'bahan'=>' Kanvas',
@@ -161,6 +164,7 @@ $kategori = kategori::create([
             ]);
 
     $Product2 = Product::create([
+            'Kode' => 'B-A02',
             'kategori_id' => '3',
             'nama_product' =>'Clans Eat Sleep Clash ',
             'bahan'=>'Kanvas ',
@@ -171,6 +175,7 @@ $kategori = kategori::create([
 
 
     $Product3= Product::create([
+            'Kode' => 'B-A03',
             'kategori_id' => '3',
             'nama_product' =>' Grafiry',
             'bahan'=>' Kanvas',
@@ -181,6 +186,7 @@ $kategori = kategori::create([
 
 
     $Product4 = Product::create([
+            'Kode' => 'J-A01',
             'kategori_id' => '5',
             'nama_product' =>' Denim Woman',
             'bahan'=>' Levis',
@@ -191,6 +197,7 @@ $kategori = kategori::create([
 
 
     $Product5 = Product::create([
+            'Kode' => 'J-A02',
             'kategori_id' => '5',
             'nama_product' =>' Rip Curlt',
             'bahan'=>' Kanvas',
@@ -201,6 +208,7 @@ $kategori = kategori::create([
 
 
     $Product6 = Product::create([
+            'Kode' => 'T-A01',
             'kategori_id' => '2',
             'nama_product' =>' Marc Series',
             'bahan'=>'Kanvas ',
@@ -211,6 +219,7 @@ $kategori = kategori::create([
 
 
     $Product7 = Product::create([
+            'Kode' => 'T-A02',
             'kategori_id' => '2',
             'nama_product' =>' Waist Bag',
             'bahan'=>'Catton Kanvas ',
@@ -221,6 +230,7 @@ $kategori = kategori::create([
 
 
     $Product8 = Product::create([
+            'Kode' => 'T-A03',
             'kategori_id' => '2',
             'nama_product' =>'Achile Black ',
             'bahan'=>'Catton Kanvas ',
@@ -231,6 +241,7 @@ $kategori = kategori::create([
 
 
     $Product9 = Product::create([
+            'Kode' => 'H-A01',
             'kategori_id' => '4',
             'nama_product' =>'Bucket Drll Army ',
             'bahan'=>'Catton Kanvas ',
@@ -241,6 +252,7 @@ $kategori = kategori::create([
 
 
     $Product10 = Product::create([
+            'Kode' => 'H-A02',
             'kategori_id' => '4',
             'nama_product' =>'Snap Back Pink ',
             'bahan'=>' Catton Kanvas',
@@ -251,6 +263,7 @@ $kategori = kategori::create([
 
 
     $Product11 = Product::create([
+            'Kode' => 'H-A03',
             'kategori_id' => '4',
             'nama_product' =>'Snap Back Cream Black ',
             'bahan'=>'Kanvas ',
@@ -263,6 +276,7 @@ $kategori = kategori::create([
 
 
     $Product12 = Product::create([
+            'Kode' => 'C-A01',
             'kategori_id' => '1',
             'nama_product' =>'Casual',
             'bahan'=>'Catton Kanvas ',
@@ -274,6 +288,7 @@ $kategori = kategori::create([
 
 
     $Product13 = Product::create([
+            'Kode' => 'C-A02',
             'kategori_id' => '1',
             'nama_product' =>' Cutbray Woman',
             'bahan'=>'Catton Kanvas ',
@@ -299,17 +314,8 @@ $kategori = kategori::create([
                             <pre id="tw-target-text" class="tw-data-text tw-ta tw-text-small" dir="ltr" data-placeholder="Terjemahan" data-fulltext=""><span lang="id">Setiap Desain yang di buat berkualitas, kami <br />diawali dengan bahan-bahan yang berkualitas . <br />Setelah Anda menggunakannya, produk kami akan menjadi<br />membuat anda terlihat lebih menarik - kami jamin!</span></pre>
                             <p>&nbsp;</p>
                             </body>
-                                </html>',
-            'textkecilboldft'=>'DATANG DAN BUKTIKAN SENDIRI KE STORE KAMI',
-            'textbesarft'=>'DISC 20% ',
-            'textkecilft'=>'<!DOCTYPE html>
-                            <html>
-                            <head>
-                            </head>
-                            <body>
-                            <p>Disciunt 50% Sampai Tanggal 30 Maret , Datang Jangan Sampai Terlewatkan !!</p>
-                            </body>
-                            </html>'
+                                </html>'
+           
             ]);
 
 
@@ -359,6 +365,12 @@ $kategori = kategori::create([
             'line' => '@panscompany (Jangan Lupa Gunakan @)',
             'email' => 'info@panscompany.com ',
             'alamat' => 'Jalan Kenangan No.24  Bandung, Indonesia'
+            ]);
+
+                  $discont = discont::create([
+            'atas'=>'UNTUK SEMUA PRODUK',
+            'tengah'=>'DISC 20%',
+            'bawah' => 'Discont Berlaku Sampai 21 juni 2018'
             ]);
 
 

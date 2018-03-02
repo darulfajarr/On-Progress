@@ -6,11 +6,7 @@
 <link rel="shortcut icon" href="{{asset('icon.png')}}">
 @extends('layouts.user')
 @section('content')
-@foreach ($Lainnya as $data) 
-<body style="background:linear-gradient(rgba(47,23,15,.65),rgba(47,23,15,.65)),url(../img/img1/{{$data->cover}});
-              background-repeat: no-repeat;
-              background-size: cover; 
-              background-attachment: fixed;">
+
   <body>
   @foreach ($Home as $data) 
     <h1 class="site-heading text-center text-white d-none d-lg-block">
@@ -31,7 +27,7 @@
             </h2>
             <p class="mb-3">{!!$data->textkecilbd!!}</p>
             <div class="intro-button mx-auto">
-              <a class="btn btn-primary btn-xl">Kunjungi Kami Hari Ini !</a>
+              <a href ="/store" class="btn btn-primary btn-xl"><font color="black">Kunjungi Kami Hari Ini !</font></a>
             </div>
           </div>
         </div>
@@ -39,22 +35,45 @@
     </section>
 
     <section class="page-section cta">
+    
+
+     <div class="container">
+        <div class="row">
+          <div class="col-xl-24 mx-auto">
+            <div class="cta-inner text-center rounded">
+              <h2 class="section-heading mb-8">
+         
+                <span class="section-heading-lower">Discont Dan Promo Yang Tersdia Di PansCloth</span>
+              </h2>
+    
+            </div>
+ 
+          </div>
+        </div>
+      </div>
+
+      <br><br><br>
+        @foreach ($discont as $data)
       <div class="container">
         <div class="row">
           <div class="col-xl-9 mx-auto">
             <div class="cta-inner text-center rounded">
               <h2 class="section-heading mb-4">
-                <span class="section-heading-upper">{!!$data->textkecilboldft!!}</span>
+                <span class="section-heading-upper">{!!$data->atas!!}</span>
                 <br>
-                <span class="section-heading-lower">{!!$data->textbesarft!!}</span>
+                <span class="section-heading-lower">{!!$data->tengah!!}</span>
               </h2>
-              <p class="mb-0">{!!$data->textkecilft!!}</p>
+              <p class="mb-0">{!!$data->bawah!!}
+              </p>
             </div>
+            <br><br><br>
           </div>
         </div>
       </div>
       
+            @endforeach
+            
     </section>
     @endforeach
-@endforeach
+
 @endsection

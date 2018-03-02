@@ -11,7 +11,7 @@
     </h1>
 @extends('layouts.user')
 @section('content')
-@foreach ($Lainnya as $data1) 
+
 
       <br>
 
@@ -37,12 +37,6 @@
       </div>
     </nav>
 
-<body style="background:linear-gradient(rgba(47,23,15,.65),rgba(47,23,15,.65)),url(../img/img1/{{$data1->cover}});
-              background-repeat: no-repeat;
-              background-size: cover; 
-              background-attachment: fixed;">
-
-
 
          @foreach ($Product as $data)
  
@@ -63,6 +57,9 @@
               <p class="mb-0"><center><h2><b><u>Detail</u></b></h2></center>  <br>
 
                 <table>
+                  <tr>
+                    <td>Kode</td><td>&nbsp:&nbsp</td><td>{!!$data->Kode!!}</td>
+                  </tr>
                   <tr>
                     <td>Bahan</td><td>&nbsp:&nbsp</td><td>{!!$data->bahan!!}</td>
                   </tr>
@@ -89,7 +86,6 @@
 
     </section>
 
-@endforeach
 
 @endsection
 
