@@ -45,8 +45,10 @@ public function index(Request $request, Builder $htmlBuilder)
         $this->validate($request, [
             'nama_kategori'=> 'required|unique:kategoris,nama_kategori',
             ]);
-        $kategori = kategori::create($request->except('cover'));
-
+        $kategori = new kategori ;
+        $kategori->nama_kategori = $request->nama_kategori;
+        $kategori->slug = str_slug ($request->nama_kategori,'-');
+        $kategori->save();
         Session::flash("flash_notification", [
             "level"=>"success",
             "message"=>"Berhasil Menyimpan $kategori->nama_kategori"
@@ -72,7 +74,11 @@ public function index(Request $request, Builder $htmlBuilder)
      */
     public function edit($id)
     {
-           $kategori = kategori::find($id);
+          $kategori = kategori::find($id);
+        $kategori->nama_kategori = $request->nama_kategori;
+        $kategori->slug = str_slug ($request->nama_kategori,'-');
+        $kategori->save();
+        
         return view('kategori.edit')->with(compact('kategori'));
     
     }

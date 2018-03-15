@@ -10,4 +10,9 @@ class kategori extends Model
  public function product(){
     	return $this->hasMany('App\Product');
     }
+
+     public function getRouteKeyName()
+    {
+    	return 'slug';
+    }
 }

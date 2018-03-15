@@ -36,7 +36,7 @@ class GuestsController extends Controller
     public function index(Request $request, Builder $htmlBuilder)
     {
        $Home = Home::all();
-        $discont = discont::all();
+        $discont = discont::orderBy('created_at','DESC')->get();
 
        return view('guest.home')->with(compact('Home','discont'));
    }
@@ -48,7 +48,7 @@ class GuestsController extends Controller
  
   
   
-  public function products(Request $request, Builder $htmlBuilder)
+  public function products(kategori $kategori)
    {
 
        $Product = Product::orderBy('nama_product','asc')->paginate(2);
@@ -78,15 +78,14 @@ public function about(Request $request, Builder $htmlBuilder)
        return view('guest.about')->with(compact('About')); 
    }
 
-public function showperkategori($id)
+public function showperkategori(kategori $kategori)
    {
-       $filtercategori = Product::where('kategori_id','=',$id)->paginate(2);
-       $kategori = kategori::all();
+       $filtercategori = $kategori->product()->paginate(5);
        return view('guest.kategori')->with(compact('filtercategori','kategori')); 
    }
-public function show($id)
+public function show(artikel $artikel)
    {
-      $artikel=artikel::findOrfail($id);
+     
         return view('guest.show')->with(compact('artikel')); 
    }
 

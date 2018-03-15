@@ -12,6 +12,8 @@ public function kategori(){
     	return $this->belongsTo('App\kategori');
     }         
 
+   
+
 }
 
 

@@ -19,8 +19,7 @@ class ArtikelContoller extends Controller
      */
 public function index(Request $request, Builder $htmlBuilder)
     {
-        $artikel = artikel::all();
-
+        $artikel = artikel::orderBy('created_at','DESC')->get();
     return view('artikel.index')->with(compact('artikel'));
     }
 
@@ -47,7 +46,10 @@ public function index(Request $request, Builder $htmlBuilder)
            
             'judul'=> 'required|unique:artikels,judul',
             ]);
-        $artikel = artikel::create($request->except('cover'));
+        $artikel = new artikel;
+        $artikel->judul = $request->judul;
+        $artikel->slug = str_slug ($request->judul,'-');
+        $artikel->isi = $request->isi;
 // isi field cover jika ada cover yang diupload
         if ($request->hasFile('cover')) {
 // Mengambil file yang diupload
@@ -104,11 +106,11 @@ public function index(Request $request, Builder $htmlBuilder)
      */
      public function update(Request $request, $id)
     {
-        $this->validate($request, ['judul' => 'required|unique:artikels,judul,'. $id,
-            'cover'=> 'image|max:2048'
-            ]);
-        $poto = artikel::find($id);
-        $poto->update($request->all());
+        
+        $artikel = artikel::find($id);
+        $artikel->judul = $request->judul;
+        $artikel->slug = str_slug ($request->judul,'-');
+        $artikel->isi = $request->isi;
         if ($request->hasFile('cover')) {
 // menambil cover yang diupload berikut ekstensinya
             $filename = null;
@@ -122,10 +124,10 @@ public function index(Request $request, Builder $htmlBuilder)
 // memindahkan file ke folder public/img
             $uploaded_cover->move($destinationPath, $filename);
 // hapus cover lama, jika ada
-            if ($poto->cover) {
-                $old_cover = $poto->cover;
+            if ($artikel->cover) {
+                $old_cover = $artikel->cover;
                 $filepath = public_path() . DIRECTORY_SEPARATOR . 'img/img7'
-                . DIRECTORY_SEPARATOR . $poto->cover;
+                . DIRECTORY_SEPARATOR . $artikel->cover;
                 try {
                     File::delete($filepath);
                 } catch (FileNotFoundException $e) {
@@ -134,8 +136,8 @@ public function index(Request $request, Builder $htmlBuilder)
             }
 
             // ganti field cover dengan cover yang baru
-            $poto->cover = $filename;
-            $poto->save();
+            $artikel->cover = $filename;
+            $artikel->save();
         }
         Session::flash("flash_notification", [
             "level"=>"success",

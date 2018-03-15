@@ -22,7 +22,8 @@ class ProductSeeder extends Seeder
     {
 $artikel = artikel::create([
 'cover'=>'4ebc66bc86c43cc86a865e0eb94fa0b0.jpg',
-'judul'=>'Catat, Berikut Tips Berpakaian yang Pas untuk Cowok Berkulit Gelap!',
+'judul'=>'Catat Berikut Tips Berpakaian yang Pas untuk Cowok Berkulit Gelap!',
+'slug'=>'catat-berikut-tips-berpakaian-yang-pas-untuk-cowok-berkulit-gelap!',
 'isi' => '<!DOCTYPE html>
 <html>
 <head>
@@ -41,6 +42,7 @@ $artikel = artikel::create([
  $artikel = artikel::create([
 'cover'=>'440ff9b2d08cc3d71855a5ac77c9e764.jpg',
 'judul'=>'8 Tips Berpakaian Untuk Wanita Gemuk Agar Terlihat Lebih Langsing',
+'slug'=>'8-tips-berpakaian-untuk-wanita-gemuk-agar-terlihat-lebih-langsing',
 'isi' => '<!DOCTYPE html>
 <html>
 <head>
@@ -69,6 +71,7 @@ $artikel = artikel::create([
  $artikel = artikel::create([
             'cover'=>'8be4780751e36c8554962f6ab7bd2304.jpg',
             'judul'=>'5 Aturan Cara Berpakaian yang Bikin Gaya Anda Semakin Modis',
+             'slug'=>'5-aturan-cara-berpakaian-yang-bikin-gaya-anda-semakin-modis',
             'isi' => '<!DOCTYPE html>
 <html>
 <head>
@@ -95,7 +98,8 @@ $artikel = artikel::create([
 
   $artikel = artikel::create([
             'cover'=>'139c52b259fc10a8c9d9ee76d790d3ae.jpg',
-            'judul'=>'3 Gaya Berpakaian Cewek Ini, Sukses Bikin Cowok-Cowok Jatuh Hati!',
+            'judul'=>'3 Gaya Berpakaian Cewek Ini Sukses Bikin cowok-cowok Jatuh Hati',
+            'slug'=>'3-gaya-berpakaian-cewek-ini-sukses-bikin-cowok-cowok-jatuh-hati',
             'isi' => '<!DOCTYPE html>
 <html>
 <head>
@@ -134,20 +138,23 @@ $artikel = artikel::create([
             ]);
  
 $kategori = kategori::create([
-            'nama_kategori' => 'Celana']);
+            'nama_kategori' => 'Celana',
+            'slug' => 'celana']);
 
 $kategori = kategori::create([
-            'nama_kategori' => 'Tas']);
+            'nama_kategori' => 'Tas',
+            'slug' => 'tas']);
+$kategori = kategori::create([
+            'nama_kategori' => 'Baju',
+            'slug' => 'baju']);
 
 $kategori = kategori::create([
-            'nama_kategori' => 'Baju']);
+            'nama_kategori' => 'Topi',
+            'slug' => 'topi']);
 
 $kategori = kategori::create([
-            'nama_kategori' => 'Topi']);
-
-$kategori = kategori::create([
-            'nama_kategori' => 'Jaket']);
-
+            'nama_kategori' => 'Jeket',
+            'slug' => 'jaket']);
 
 
 

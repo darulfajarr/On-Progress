@@ -17,6 +17,7 @@ class CreateArtikelsTable extends Migration
             $table->increments('id');
              $table->string('cover')->nullable();
             $table->string('judul');
+             $table->string('slug');
             $table->text('isi');
             $table->timestamps();
         });
